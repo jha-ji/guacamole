@@ -11,7 +11,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@main
       with:
-        name: amit/guacamole:latest
+        name: ${{ github.actor }}/guacamole:latest
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
