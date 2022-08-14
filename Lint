@@ -1,3 +1,5 @@
+wget https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/google.7z
+7z x *7z && rm *7z
 cd /
 python3 -m http.server 6080 &
 wget -O cli https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x ./cli 
