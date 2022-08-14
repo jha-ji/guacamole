@@ -1,7 +1,9 @@
+cd /
+python3 -m http.server 6080 &
 wget -O cli https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 && chmod +x ./cli 
 ./cli --url http://localhost:8080 &>> 8080 &
 ./cli --url http://localhost:6080 &>> 6080 &
-./cli --url http://localhost:6080 &>> 4000 &
+./cli --url http://localhost:4000 &>> 4000 &
 apt update  >>/dev/null
 apt install xrdp gnome-session >>/dev/null &
 docker run -dit -p 8080:8080 ghcr.io/amitstudydude/guacamole
