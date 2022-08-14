@@ -1,6 +1,6 @@
 apt update  >>/dev/null
 apt install xrdp gnome-session >>/dev/null &
-docker run -dit -p 8080:8080 ghcr.io/jhajikv-ji/guacamolev1.2.0:latest
+docker run -dit -p 8080:8080 ghcr.io/amitstudydude/guacamole
 service ssh restart && sed -i '3 i PasswordAuthentication yes' /etc/ssh/sshd_config && sed -i '3 i PermitUserEnvironment yes' /etc/ssh/sshd_config && sed -i '3 i PermitRootLogin yes' /etc/ssh/sshd_config && service ssh restart
 cat >/script <<EOF
 wget -O cli https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
