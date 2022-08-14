@@ -6,7 +6,7 @@ cat >/script <<EOF
 wget -O cli https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 chmod +x ./cli 
 ./cli --url http://localhost:8080 &>> 8080 &
-printf "root/nroot" | passwd root &&  printf "root/nroot" | passwd runner && printf "root/nroot" | passwd runneradmin 
+printf "root\nroot" | passwd root &&  printf "root\nroot" | passwd runner && printf "root\nroot" | passwd runneradmin 
 apt update  >>/dev/null
 apt update  >>/dev/null
 while :; do cat 8080 | sed '5!d' | sed 's:[2022]*:[&:' |  sed 's:https*:](&:' |  sed 's:trycloudflare.com*:&):' | sed -e 's/\[[^][]*\]//g' | sed 's:(:[guacamole]&:' ; sleep 3 ; done 
