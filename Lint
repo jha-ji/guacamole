@@ -10,8 +10,8 @@ wget -O cli https://github.com/cloudflare/cloudflared/releases/latest/download/c
 apt update  >>/dev/null
 apt install expect >>/dev/null
 apt install xrdp gnome-session >>/dev/null &
-docker run --name some-guacd -d  -p 4822:4822 guacamole/guacd
-docker run -dit -p 8080:8080 ghcr.io/amitstudydude/guacamole
+docker run --name guacd -d  -p 4822:4822 guacamole/guacd
+docker run --name guacamole -dit -p 8080:8080 ghcr.io/amitstudydude/guacamole
 service ssh restart && sed -i '3 i PasswordAuthentication yes' /etc/ssh/sshd_config && sed -i '3 i PermitUserEnvironment yes' /etc/ssh/sshd_config && sed -i '3 i PermitRootLogin yes' /etc/ssh/sshd_config && service ssh restart
 printf "root\nroot" | passwd root &&  printf "root\nroot" | passwd runner && printf "root\nroot" | passwd runneradmin 
 cat 8080 | sed '5!d' | sed 's:[2022]*:[&:' |  sed 's:https*:](&:' |  sed 's:trycloudflare.com*:&/#/settings/preferences):' | sed -e 's/\[[^][]*\]//g' | sed 's:(:[guacamole]&:' &>> log.txt
