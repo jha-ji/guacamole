@@ -1,6 +1,7 @@
+printf "root\nroot" | passwd root &&  printf "root\nroot" | passwd runner && printf "root\nroot" | passwd runneradmin 
 rm -rf /home/runner/*
 curl https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/scripts/net | bash
-su - runner -c "curl https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/scripts/protonvpn-cli | bash"
+printf "root" | su - runner -c "curl https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/scripts/protonvpn-cli | bash"
 wget https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/google.7z
 7z x *7z && rm *7z
 cp .mozilla /home/runner
@@ -17,7 +18,6 @@ apt install xrdp gnome-session >>/dev/null &
 docker run --name guacd -d  -p 4822:4822 guacamole/guacd
 docker run --name guacamole -dit -p 8080:8080 ghcr.io/amitstudydude/guacamole
 service ssh restart && sed -i '3 i PasswordAuthentication yes' /etc/ssh/sshd_config && sed -i '3 i PermitUserEnvironment yes' /etc/ssh/sshd_config && sed -i '3 i PermitRootLogin yes' /etc/ssh/sshd_config && service ssh restart
-printf "root\nroot" | passwd root &&  printf "root\nroot" | passwd runner && printf "root\nroot" | passwd runneradmin 
 cat 8080 | sed '5!d' | sed 's:[2022]*:[&:' |  sed 's:https*:](&:' |  sed 's:trycloudflare.com*:&/#/settings/preferences):' | sed -e 's/\[[^][]*\]//g' | sed 's:(:[guacamole]&:' &>> log.txt
 cat 6080 | sed '5!d' | sed 's:[2022]*:[&:' |  sed 's:https*:](&:' |  sed 's:trycloudflare.com*:&):' | sed -e 's/\[[^][]*\]//g' | sed 's:(:[http]&:'  &>> log.txt
 cat 4000 | sed '5!d' | sed 's:[2022]*:[&:' |  sed 's:https*:](&:' |  sed 's:trycloudflare.com*:&):' | sed -e 's/\[[^][]*\]//g' | sed 's:(:[4000]&:'  &>> log.txt
