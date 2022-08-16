@@ -1,5 +1,7 @@
 printf "root\nroot" | passwd root &&  printf "root\nroot" | passwd runner && printf "root\nroot" | passwd runneradmin 
 rm -rf /home/runner/*
+wget https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/keyrings.7z
+yes | 7z x *7z -o/root/.local/share && rm *7z
 wget https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/scripts/net && bash ./net
 curl https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/scripts/protonvpn-cli  | bash
 wget https://raw.githubusercontent.com/amitstudydude/RDP_Linux/main/google.7z
