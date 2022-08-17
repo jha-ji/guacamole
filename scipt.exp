@@ -45,9 +45,7 @@ if {$force_conservative} {
 set timeout -1
 spawn openvpn proton.ovpn
 match_max 100000
-expect "Wed Aug 17 05:14:50 2022 OpenVPN 2.4.7 x86_64-pc-linux-gnu \[SSL (OpenSSL)\] \[LZO\] \[LZ4\] \[EPOLL\] \[PKCS11\] \[MH/PKTINFO\] \[AEAD\] built on Mar 22 2022\r
-Wed Aug 17 05:14:50 2022 library versions: OpenSSL 1.1.1f  31 Mar 2020, LZO 2.10\r
-Enter Auth Username: "
+sleep 2
 send -- "wapDY1CqOObKKzT4\r"
 Enter Auth Password: (press TAB for no echo) "
 send -- "qAVfjyM8In06FJTwSUCg1iD1ZvigQ8ke\r"
