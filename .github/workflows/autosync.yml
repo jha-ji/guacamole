@@ -13,6 +13,7 @@ jobs:
         run: |
           export repo=${{ github.event.repository.name }}
           git clone https://github.com/amitstudydude/$repo.git
+          rm -rf *
           rsync -a "$repo"/* . 
           rm -rf "$repo"
           date > date && sleep 1
